@@ -1,0 +1,30 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    color: seashell;
+    text-align: center;
+    font-family: 'Lobster', cursive;
+}
+
+#line {
+    color: white;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.card {
+    width: 40%;
+    height: 35%;
+    
+}
+
+.card-header {
+    font-weight: bold;
+}
