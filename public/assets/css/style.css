@@ -29,6 +29,13 @@ footer {
 
 nav {
     font-weight: bold;
-    
+
 }
+
+#chart-container {
+    width: 640px;
+    height: auto;
+}
+
+
 
