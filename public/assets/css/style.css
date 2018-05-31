@@ -1,5 +1,7 @@
 body {
-    background-color: black;
+    
+    background-image: url("../images/black.jpg");
+    float:center;
 }
 
 h1 {
@@ -25,11 +27,15 @@ footer {
     
 }
 
-.card-header {
+nav {
     font-weight: bold;
+
 }
 
 #chart-container {
     width: 640px;
     height: auto;
 }
+
+
+
