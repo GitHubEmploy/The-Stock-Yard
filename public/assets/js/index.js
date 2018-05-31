@@ -1,3 +1,5 @@
+console.log('index.js file loded')
+
 $(".submit").on("click", function(event){
     event.preventDefault();
     window.location = "userInputs.html";

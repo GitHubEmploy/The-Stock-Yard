@@ -1,0 +1,100 @@
+<h1 class="display-1">
+
+    The Stock Yard
+
+</h1>
+<hr color="seashell">
+<br>
+<br>
+<div class="card mx-auto">
+    <div class="card-header">
+        Login To Your Account
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+                <label>Username</label>
+                <input type="username" class="form-control" id="username" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+            <button type="submit" id="submit" class="btn btn-primary" onclick="userInputs.html">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div id="alertModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Errors Found!</h4>
+            </div>
+            <div class="modal-body">
+                <p></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">
+                    Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<footer>
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright">
+            <a href="https://www.tradingview.com" rel="noopener" target="_blank">
+                <span class="blue-text">Quotes</span>
+            </a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
+            {
+                "symbols": [
+                    {
+                        "title": "S&P 500",
+                        "proName": "INDEX:SPX"
+                    },
+                    {
+                        "title": "Nasdaq 100",
+                        "proName": "INDEX:IUXX"
+                    },
+                    {
+                        "title": "EUR/USD",
+                        "proName": "FX_IDC:EURUSD"
+                    },
+                    {
+                        "title": "BTC/USD",
+                        "proName": "BITFINEX:BTCUSD"
+                    },
+                    {
+                        "title": "ETH/USD",
+                        "proName": "BITFINEX:ETHUSD"
+                    },
+                    {
+                        "description": "APPLE",
+                        "proName": "NASDAQ:AAPL"
+                    },
+                    {
+                        "description": "AMAZON",
+                        "proName": "NASDAQ:AMZN"
+                    },
+                    {
+                        "description": "MMJ",
+                        "proName": "NYSE:ABBV"
+                    },
+                    {
+                        "description": "MJNA",
+                        "proName": "OTC:MJNA"
+                    }
+                ],
+                    "locale": "en"
+            }
+        </script>
+    </div>
+</footer>
