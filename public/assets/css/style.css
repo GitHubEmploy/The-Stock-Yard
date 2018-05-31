@@ -28,3 +28,8 @@ footer {
 .card-header {
     font-weight: bold;
 }
+
+#chart-container {
+    width: 640px;
+    height: auto;
+}
