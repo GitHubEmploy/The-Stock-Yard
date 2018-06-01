@@ -8,7 +8,7 @@ $(".submit").on("click", function(event){
      };
      console.log(newHoldings);
   
-  $.post("....", newHoldings, function(data){
+  $.post("./models/stock.js", newHoldings, function(data){
     if(data) {
       alert("added");
     }
