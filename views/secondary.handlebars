@@ -1,61 +1,59 @@
 
+<nav>
+        <ul class="nav masthead-nav">
+         <li><a href="/">Back</a></li>
+        </ul> 
+    </nav>      
+        
+    <br>
+    <br>
+    <br>
 
+    <div class="card mx-auto">
+            <div class="card-header">
+              Add Positions to your Portfolio
+            </div>
+            <div class="card-body">
+                <form>
+                        <div class="form-group">
+                                <label for="tickerSymbol">Ticker Symbol</label>
+                                <input type="tickerSymbol" class="form-control" id="tickerSymbol" placeholder="">
+                              </div>  
+                              
+                              <div class="form-group">
+                                <label for="qty">Quantity</label>
+                                <input type="qty" class="form-control" id="qty" placeholder="">
+                              </div>
+                       
+                    
+                               
+                    <button type="submit" id = "submit" class="btn btn-primary">Add</button>
+                    <br>
+                    <a href="">No Thanks, Proceed to next page</a>
+                </form>
+            </div>
+        </div>
 
+        <br>
+        <br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <div class="row">
+                <div class="col-lg-12">
+                    <h1> Current Holdings </h1>
+                    <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Symbol</th>
+                        <th scope="col">Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody id="holdingstable">
+                    </tbody>
+                    
+                    </table>
+                </div>
+            </div>
 <!-- Creating the user graph -->
         <div id="chart-container">
           <canvas id="myCanvas" style="width:400px; height:auto;"></canvas>
