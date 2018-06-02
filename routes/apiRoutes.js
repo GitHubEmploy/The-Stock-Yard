@@ -11,16 +11,14 @@ module.exports = function(app) {
     
   });
 
-  app.post("/api/second", function(req, res) {
+  app.post("/second", function(req, res) {
     console.log(req.body);
-    db.stocks
-      .create({
-        stock_name: req.body.position,
-
+    db.stocks.create({
+        stock_name: req.body.stock_name,
         qty: req.body.qty
       })
-      .then(function(user_stocks) {
-        res.json(user_stocks);
+      .then(function(userStocks) {
+        res.json(userStocks);
       });
   });
 };
