@@ -11,10 +11,12 @@ module.exports = function(app) {
     
   });
 
-  app.post("/second", function(req, res) {
+  app.post("/api/second", function(req, res) {
     console.log(req.body);
-    db.Stocks.create({
-        stock_name: req.body.stock_name,
+    db.stocks
+      .create({
+        stock_name: req.body.position,
+
         qty: req.body.qty
       })
       .then(function(user_stocks) {
