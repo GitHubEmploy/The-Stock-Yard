@@ -1,23 +1,14 @@
 $(document).ready(function() {
 
+        // import Chart from '/chart.js'
+
         var color = Chart.helpers.color
         var barGraphData = {
             labels: ['Janurary', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             datasets: [{
                 backgroundColor: color(window.chartColors),
                 label: [],
-                data: [
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor()                            
-                ],   
+                data: [],   
             }]
         }
         var ctx = $('#myCanvas');
