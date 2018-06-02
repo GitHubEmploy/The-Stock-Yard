@@ -1,9 +1,9 @@
 // var db = require("../models")
 
 module.exports = function(app) {
-  app.get("/second", function(req, res) {
-    db.user.findAll({}).then(function(symbol) {
-      res.json(symbol);
+  app.get("/api/", function(req, res) {
+    db.user.findAll({}).then(function(user_name) {
+      res.json(user_name);
     });
   });
 
