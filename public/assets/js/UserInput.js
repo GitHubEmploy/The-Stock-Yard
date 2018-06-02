@@ -11,22 +11,22 @@ $(document).ready(function() {
     // Creating the bar graph by getting the element by id "#myCanvas"
     var ctx = $("#myCanvas");
     // Creating a "graph object" to store the data that is being put in by a user
-    var graph = new Graph(ctx, {
-        // The type of graph being created is a bar graph
-        type: 'bar',
-        // data attribute that contains the "barGraphData"
-        data: barGraphData,
-        //Options that can be added into the bar graph
-        options: {
-            responsive: true,
-            title: {
-                display: true,
-                text: "Chart.js Bar Graph"
-            }
-        }
-    });
+    // var graph = new Graph(ctx, {
+    //     // The type of graph being created is a bar graph
+    //     type: 'bar',
+    //     // data attribute that contains the "barGraphData"
+    //     data: barGraphData,
+    //     //Options that can be added into the bar graph
+    //     options: {
+    //         responsive: true,
+    //         title: {
+    //             display: true,
+    //             text: "Chart.js Bar Graph"
+    //         }
+    //     }
+    // });
 
-    $(".submit").on("click", function(event){
+    $("#submit").on("click", function(event){
         event.preventDefault();
         
         //Grabbing user input
@@ -37,18 +37,18 @@ $(document).ready(function() {
          console.log(newHoldings);
       
          // URL
-      $.post("....", newHoldings, function(data){
-        if(data) {
-          alert("added");
-        }
-        else {
-          alert("something went wrong");
-        }
+       $.post("api/second", newHoldings, function(data){
+    //     // if(data) {
+    //     //   alert("added");
+    //     // }
+    //     // else {
+    //     //   alert("something went wrong");
+    //     // }
       
-        //clears fields
-        $("#tickerSymbol").val("");
-        $("#qty").val();
-      });
+    //     //clears fields
+         $("#tickerSymbol").val("");
+         $("#qty").val();
+       });
 
       }); 
 });
