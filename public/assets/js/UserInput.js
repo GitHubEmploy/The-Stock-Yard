@@ -26,7 +26,7 @@ $(document).ready(function() {
         }
     });
 
-    $(".submit").on("click", function(event){
+    $("#enter").on("click", function(event){
         event.preventDefault();
         
         //Grabbing user input
