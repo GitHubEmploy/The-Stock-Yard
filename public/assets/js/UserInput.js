@@ -1,30 +1,38 @@
-
 $(document).ready(function() {
 
-    var barGraphData = {
-        // Empty ticker symbols array where symbols will be pushed to when "#submit" is clicked
-        tickerSymbols: [],
-        // Empty array for symbols quantities where quantities will be pushed to when "#submit" is clicked
-        quantities: []
-    }
-
-    // Creating the bar graph by getting the element by id "#myCanvas"
-    var ctx = $("#myCanvas");
-    // Creating a "graph object" to store the data that is being put in by a user
-    var graph = new Graph(ctx, {
-        // The type of graph being created is a bar graph
-        type: 'bar',
-        // data attribute that contains the "barGraphData"
-        data: barGraphData,
-        //Options that can be added into the bar graph
-        options: {
-            responsive: true,
-            title: {
-                display: true,
-                text: "Chart.js Bar Graph"
-            }
+        var color = Chart.helpers.color
+        var barGraphData = {
+            labels: ['Janurary', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            datasets: [{
+                backgroundColor: color(window.chartColors),
+                label: [],
+                data: [
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor()                            
+                ],   
+            }]
         }
-    });
+
+        var ctx = $('#myCanvas');
+        var newChart = new Chart(ctx, {
+            type: 'bar',
+            data: barGraphData,
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Chart.js Bar Chart'
+                }
+            }
+        })
 
     $(".submit").on("click", function(event){
         event.preventDefault();
@@ -49,6 +57,5 @@ $(document).ready(function() {
         $("#tickerSymbol").val("");
         $("#qty").val();
       });
-
-      }); 
+  }); 
 });
