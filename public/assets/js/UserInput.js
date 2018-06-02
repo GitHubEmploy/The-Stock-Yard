@@ -33,8 +33,13 @@ $(document).ready(function() {
   // })
   var closePrice = [];
 
+
+        // import Chart from '/chart.js'
+
+=======
   $("#submit").on("click", function(event) {
     event.preventDefault();
+
 
     //Grabbing user input
     var newHoldings = {
