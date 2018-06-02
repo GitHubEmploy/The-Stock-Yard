@@ -1,10 +1,14 @@
 var db = require("../models")
 
 module.exports = function(app) {
-  app.get("/api/", function(req, res) {
-    db.user.findAll({}).then(function(user_name) {
-      res.json(user_name);
+  app.post("/user", function(req, res) {
+      
+    //   console.log(req.body);
+    db.user.create({
+      user_name: req.body.user_name,
+      password: req.body.password
     });
+    
   });
 
   app.post("/api/second", function(req, res) {
@@ -12,10 +16,11 @@ module.exports = function(app) {
     db.stocks
       .create({
         stock_name: req.body.position,
+
         qty: req.body.qty
       })
-      .then(function(dbStocks) {
-        res.json(dbStocks);
+      .then(function(user_stocks) {
+        res.json(user_stocks);
       });
   });
 };
