@@ -1,11 +1,23 @@
+var db = require("../models")
+
 module.exports = function(app) {
-//   app.get("/second", function(req, res) {
-//     res.render("secondary");
-//   });
+  app.get("/api/", function(req, res) {
+    db.user.findAll({}).then(function(user_name) {
+      res.json(user_name);
+    });
+  });
 
-//   app.get("/", function(req, res) {
-//     res.render("index");
-//   });
-
-
+  app.post("/api/second", function(req, res) {
+    console.log(req.body);
+    db.stocks
+      .create({
+        stock_name: req.body.position,
+        qty: req.body.qty
+      })
+      .then(function(dbStocks) {
+        res.json(dbStocks);
+      });
+  });
 };
+
+

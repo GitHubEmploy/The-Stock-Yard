@@ -20,7 +20,6 @@ $(document).ready(function() {
                 ],   
             }]
         }
-
         var ctx = $('#myCanvas');
         var newChart = new Chart(ctx, {
             type: 'bar',
@@ -34,7 +33,7 @@ $(document).ready(function() {
             }
         })
 
-    $(".submit").on("click", function(event){
+    $("#submit").on("click", function(event){
         event.preventDefault();
         
         //Grabbing user input
@@ -45,17 +44,21 @@ $(document).ready(function() {
          console.log(newHoldings);
       
          // URL
-      $.post("....", newHoldings, function(data){
-        if(data) {
-          alert("added");
-        }
-        else {
-          alert("something went wrong");
-        }
+       $.post("api/second", newHoldings, function(data){
+    //     // if(data) {
+    //     //   alert("added");
+    //     // }
+    //     // else {
+    //     //   alert("something went wrong");
+    //     // }
       
-        //clears fields
-        $("#tickerSymbol").val("");
-        $("#qty").val();
-      });
-  }); 
+
+
+    //     //clears fields
+         $("#tickerSymbol").val("");
+         $("#qty").val();
+       });
+
+      }); 
+
 });
