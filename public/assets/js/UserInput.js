@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     var closePrice = [];
     var closeDate = [];
     // Creating the br graph from "myCanvas" in secondary.handlebars
@@ -55,8 +54,6 @@ $(document).ready(function() {
         });
     }
 
-  
-
  $("#submit").on("click", function(event) {
 
     event.preventDefault();
@@ -70,7 +67,7 @@ $(document).ready(function() {
     console.log(closePrice);
 
     console.log(newHoldings);
-
+    // console.log(newHoldings.stock_name);
     var stock = newHoldings.stock_name;
 
     var queryURL =
@@ -81,8 +78,8 @@ $(document).ready(function() {
       method: "GET"
     }).then(function(response) {
 
-      console.log(response);
 
+      console.log(response);
       for (var i = 0; i < response.length; i++) {
         console.log(response[i].date); 
         console.log(response[i].close);
@@ -90,8 +87,13 @@ $(document).ready(function() {
         closePrice.push(response[i].close);
         createNewGraph();
       }
-      // How to push response[i].date into the closeDate array?
-      // How to push response[i].close into the closePrice array?
+
+
+      for (var i = 0; i < response.length; i++) {
+        //   console.log(response[i].date);
+        closeDate.push(response[i].date);
+      }
+
     });
     // URL
     $.post("/second", newHoldings, function(res) {
@@ -103,5 +105,20 @@ $(document).ready(function() {
     //clears fields
     $("#tickerSymbol").val("");
     $("#qty").val("");
+
+
+    var stockName = newHoldings.stock_name.toUpperCase();
+    var worth = newHoldings.qty * closePrice;
+    console.log(worth);
+    function newCard () {
+        $("#stockTable > tbody").append("<tr><td>" + stockName + "</td><td>" + newHoldings.qty + "</td><td>" + worth + "</td><tr>")
+  
+        console.log("this function ran");
+
+        }
+
+   
+        newCard();
   });
+  
 });

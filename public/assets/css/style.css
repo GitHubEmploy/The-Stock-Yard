@@ -32,12 +32,12 @@ nav {
 
 }
 
-#chart-container {
-    /* margin: 20px; */
-    display: flex;
-    flex-direction: row;
+#stockInfo {
+    float: left;
+    text-align: center;
+    width: 40%;
+   
 }
-
 
 
 
