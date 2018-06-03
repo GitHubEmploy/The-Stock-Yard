@@ -33,7 +33,7 @@ $(document).ready(function() {
   // })
   var closePrice = [];
   var closeDate = [];
-
+var worthPrice = closePrice[0];
 
         // import Chart from '/chart.js'
 
@@ -81,10 +81,10 @@ $(document).ready(function() {
     $("#tickerSymbol").val("");
     $("#qty").val("");
 
-
+    
     var stockName = newHoldings.stock_name.toUpperCase();
-    var worth = newHoldings.qty * closePrice;
-    console.log(worth);
+    var worth = parseInt(newHoldings.qty) * parseInt(worthPrice);
+    console.log(worthPrice);
     function newCard () {
         $("#stockTable > tbody").append("<tr><td>" + stockName + "</td><td>" + newHoldings.qty + "</td><td>" + worth + "</td><tr>")
   
