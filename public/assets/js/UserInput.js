@@ -32,6 +32,7 @@ $(document).ready(function() {
   //     }
   // })
   var closePrice = [];
+  var closeDate = [];
 
   $("#submit").on("click", function(event) {
     event.preventDefault();
@@ -42,7 +43,7 @@ $(document).ready(function() {
       qty: $("#qty").val() || ""
     };
     console.log(newHoldings);
-
+    // console.log(newHoldings.stock_name);
     var stock = newHoldings.stock_name;
 
     var queryURL =
@@ -52,12 +53,17 @@ $(document).ready(function() {
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-      console.log(response);
+      //   console.log(response);
       for (var i = 0; i < response.length; i++) {
         // console.log(response[i].close);
         closePrice.push(response[i].close);
       }
-      console.log(closePrice);
+      for (var i = 0; i < response.length; i++) {
+        //   console.log(response[i].date);
+        closeDate.push(response[i].date);
+      }
+      //   console.log(closePrice);
+      //   console.log(closeDate);
     });
     // URL
     $.post("/second", newHoldings, function(res) {
@@ -69,5 +75,42 @@ $(document).ready(function() {
     //     //clears fields
     $("#tickerSymbol").val("");
     $("#qty").val("");
+
+
+    var stockName = newHoldings.stock_name.toUpperCase();
+    
+//     function newCard() {
+        
+        
+//         var stockCard = $("<div class='card mx-auto></div>");
+//     //   stockCard.addClass("card mx-auto");
+//       stockCard.attr("id", "stockSymbol");
+//       // stockCard.attr("id", "stockTicker");
+//       // stockCard.attr("id", "quantity");
+//       $("#stockTicker").append(stockName);
+//       console.log(stockCard);
+//       console.log(stockName);
+//       console.log("this function ran");
+    
+// };
+//     newCard();
+
+    // $("#stockTicker").append("Stock Name: " + stockName);
+    //   $("#quantity").append("Qty: " + newHoldings.qty);
+
+    // $("#ticker").append(stockName);
+    // $("#quantity").append(newHoldings.qty);
+    // console.log(newHoldings.stock_name);
+
+    var currentPage = window.location.origin;
+     
+    
+        $.ajax({
+            url: currentPage + "api/stock",
+            method: "GET",
+            data: newHoldings
+        }).then(function(){
+            console.log("this is loaded");
+        })
   });
 });

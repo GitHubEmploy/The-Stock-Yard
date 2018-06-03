@@ -1,69 +1,83 @@
+<div class="container">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Back</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      
-      <li class="nav-item">
-        <a class="nav-link" href="https://www.tdameritrade.com/home.page">TD AmeriTrade</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://www.schwab.com/public/schwab/active_trader/start_trading">Charles Schwab</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://www.fidelity.com/">Fidelity</a>
-      </li>
+    <a class="navbar-brand" href="/">Back</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link" href="https://us.etrade.com/home">E*TRADE</a>
-      </li>  
-        
-      <li class="nav-item">
-        <a class="nav-link" href="https://www.ally.com/invest/">ally INVEST</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://www.merrilledge.com/">Merrill Edge</a>
-      </li>
-    </ul>
-  </div>
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.tdameritrade.com/home.page">TD AmeriTrade</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.schwab.com/public/schwab/active_trader/start_trading">Charles Schwab</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.fidelity.com/">Fidelity</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="https://us.etrade.com/home">E*TRADE</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.ally.com/invest/">ally INVEST</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.merrilledge.com/">Merrill Edge</a>
+            </li>
+        </ul>
+    </div>
 </nav>
-        
-    <br>
-    <br>
-    <br>
 
-    <div class="card mx-auto">
-            <div class="card-header">
-              Add Positions to your Portfolio
+<br>
+<br>
+<br>
+
+<div class="card mx-auto">
+    <div class="card-header">
+        Add Positions to your Portfolio
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+                <label for="tickerSymbol">Ticker Symbol</label>
+                <input type="tickerSymbol" class="form-control" id="tickerSymbol" placeholder="">
             </div>
-            <div class="card-body">
-                <form>
-                        <div class="form-group">
-                                <label for="tickerSymbol">Ticker Symbol</label>
-                                <input type="tickerSymbol" class="form-control" id="tickerSymbol" placeholder="">
-                              </div>  
-                              
-                              <div class="form-group">
-                                <label for="qty">Quantity</label>
-                                <input type="qty" class="form-control" id="qty" placeholder="">
-                              </div>
-                       
-                    
-                               
-                    <button type="submit" id = "submit" class="btn btn-primary">Add</button>
-                    <br>
-                    <a href="https://www.marketwatch.com/tools/quotes/lookup.asp">Don't know what you're looking for? Click Me</a>
-                </form>
+
+            <div class="form-group">
+                <label for="qty">Quantity</label>
+                <input type="qty" class="form-control" id="qty" placeholder="">
             </div>
-        </div>
 
-        <br>
-        <br>
 
+
+            <button type="submit" id="submit" class="btn btn-primary">Add</button>
+            <br>
+            <a href="https://www.marketwatch.com/tools/quotes/lookup.asp">Don't know what you're looking for? Click Me</a>
+        </form>
+    </div>
+</div>
+
+<br>
+<br>
+<hr color="seashell">
+<br>
+<br>
+
+<div id="stockInfo">
+
+    <div id="stockTicker">
         
+    </div>
+    <div id="quantity">
+
+    </div> 
+</div>
 <!-- Creating the user graph -->
-        <div id="chart-container">
-          <canvas id="myCanvas" style="width:400px; height:auto;"></canvas>
-        </div>
+<div id="chart-container">
+    <canvas id="myCanvas" style="width:400px; height:auto;"></canvas>
+</div>
+</div>

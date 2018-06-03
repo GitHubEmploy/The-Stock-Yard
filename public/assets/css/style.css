@@ -32,5 +32,11 @@ nav {
 
 }
 
+#stockInfo {
+    float: left;
+    text-align: center;
+    width: 40%;
+   
+}
 
 
