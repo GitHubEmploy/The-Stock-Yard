@@ -83,39 +83,17 @@ $(document).ready(function() {
 
 
     var stockName = newHoldings.stock_name.toUpperCase();
-    
-//     function newCard() {
-        
-        
-//         var stockCard = $("<div class='card mx-auto></div>");
-//     //   stockCard.addClass("card mx-auto");
-//       stockCard.attr("id", "stockSymbol");
-//       // stockCard.attr("id", "stockTicker");
-//       // stockCard.attr("id", "quantity");
-//       $("#stockTicker").append(stockName);
-//       console.log(stockCard);
-//       console.log(stockName);
-//       console.log("this function ran");
-    
-// };
-//     newCard();
+    var worth = newHoldings.qty * closePrice;
+    console.log(worth);
+    function newCard () {
+        $("#stockTable > tbody").append("<tr><td>" + stockName + "</td><td>" + newHoldings.qty + "</td><td>" + worth + "</td><tr>")
+  
+        console.log("this function ran");
 
-    // $("#stockTicker").append("Stock Name: " + stockName);
-    //   $("#quantity").append("Qty: " + newHoldings.qty);
+        }
 
-    // $("#ticker").append(stockName);
-    // $("#quantity").append(newHoldings.qty);
-    // console.log(newHoldings.stock_name);
-
-    var currentPage = window.location.origin;
-     
-    
-        $.ajax({
-            url: currentPage + "api/stock",
-            method: "GET",
-            data: newHoldings
-        }).then(function(){
-            console.log("this is loaded");
-        })
+   
+        newCard();
   });
+  
 });
