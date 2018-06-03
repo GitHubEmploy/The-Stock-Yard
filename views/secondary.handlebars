@@ -34,6 +34,7 @@
     <br>
     <br>
 
+  <div class="container-fluid">
     <div class="card mx-auto">
             <div class="card-header">
               Add Positions to your Portfolio
@@ -48,10 +49,7 @@
                               <div class="form-group">
                                 <label for="qty">Quantity</label>
                                 <input type="qty" class="form-control" id="qty" placeholder="">
-                              </div>
-                       
-                    
-                               
+                              </div>         
                     <button type="submit" id = "submit" class="btn btn-primary">Add</button>
                     <br>
                     <a href="https://www.marketwatch.com/tools/quotes/lookup.asp">Don't know what you're looking for? Click Me</a>
@@ -59,11 +57,14 @@
             </div>
         </div>
 
+        <div id="chart-container" style="width: 50%;">
+          <canvas id="myCanvas" style="width: 100%;"></canvas>
+        </div>
+
+    </div>
+
         <br>
         <br>
 
-        
-<!-- Creating the user graph -->
-        <div id="chart-container">
-          <canvas id="myCanvas" style="width:400px; height:auto;"></canvas>
-        </div>
+       
+]

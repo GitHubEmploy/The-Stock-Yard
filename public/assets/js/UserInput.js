@@ -1,68 +1,97 @@
 $(document).ready(function() {
-  // var color = Chart.helpers.color
-  // var barGraphData = {
-  //     labels: ['Janurary', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-  //     datasets: [{
-  //         backgroundColor: color(window.chartColors),
-  //         label: [],
-  //         data: [
-  //             randomScalingFactor(),
-  //             randomScalingFactor(),
-  //             randomScalingFactor(),
-  //             randomScalingFactor(),
-  //             randomScalingFactor(),
-  //             randomScalingFactor(),
-  //             randomScalingFactor(),
-  //             randomScalingFactor(),
-  //             randomScalingFactor(),
-  //             randomScalingFactor()
-  //         ],
-  //     }]
-  // }
-  // var ctx = $('#myCanvas');
-  // var newChart = new Chart(ctx, {
-  //     type: 'bar',
-  //     data: barGraphData,
-  //     options: {
-  //         responsive: true,
-  //         title: {
-  //             display: true,
-  //             text: 'Chart.js Bar Chart'
-  //         }
-  //     }
-  // })
-  var closePrice = [];
 
+    var closePrice = [];
+    var closeDate = [];
+    // Creating the br graph from "myCanvas" in secondary.handlebars
+    var barGraph = $('#myCanvas');
+    var graphData= {
+        
+        datasets: [{
+            label: "Close Price",
+            backgroundColor: 'lightblue',
+            data: closePrice
+        }]
+    };
 
-        // import Chart from '/chart.js'
+    function createNewGraph() {
+        var newGraph = new Chart(barGraph, {
+            type: 'bar',
+            data: graphData,
+            options:{
+                responsive: false,
+                scales: {
+                    xAxes:[{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Date(YYYY/MM/DD/)',
+                            fontSize: 20,
+                            fontColor: 'white'
+                        },
+                        gridLines: {
+                            color: 'white'
+                        },
+                        ticks: {
+                            fontColor: 'white'
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Close Price($)',
+                            fontSize: 20,
+                            fontColor: 'white'
+                        },
+                        gridLines: {
+                            color: 'white',
+                            
+                        },
+                        ticks: {
+                            fontColor: 'white',
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    }
 
-=======
-  $("#submit").on("click", function(event) {
+  
+
+ $("#submit").on("click", function(event) {
+
     event.preventDefault();
-
-
     //Grabbing user input
     var newHoldings = {
       stock_name: $("#tickerSymbol").val() || "",
       qty: $("#qty").val() || ""
     };
+
+    console.log(closeDate);
+    console.log(closePrice);
+
     console.log(newHoldings);
 
     var stock = newHoldings.stock_name;
 
     var queryURL =
-      "https://api.iextrading.com/1.0/stock/" + stock + "/chart/3m";
+      "https://api.iextrading.com/1.0/stock/" + stock + "/chart/1m";
 
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
+
       console.log(response);
+
       for (var i = 0; i < response.length; i++) {
-        // console.log(response[i].close);
+        console.log(response[i].date); 
+        console.log(response[i].close);
+        closeDate.push(response[i].date);
         closePrice.push(response[i].close);
+        createNewGraph();
       }
-      console.log(closePrice);
+      // How to push response[i].date into the closeDate array?
+      // How to push response[i].close into the closePrice array?
     });
     // URL
     $.post("/second", newHoldings, function(res) {
@@ -71,7 +100,7 @@ $(document).ready(function() {
       throw err;
     });
 
-    //     //clears fields
+    //clears fields
     $("#tickerSymbol").val("");
     $("#qty").val("");
   });
