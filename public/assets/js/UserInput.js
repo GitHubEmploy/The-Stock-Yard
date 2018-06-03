@@ -37,7 +37,7 @@ $(document).ready(function() {
 
         // import Chart from '/chart.js'
 
-=======
+
   $("#submit").on("click", function(event) {
     event.preventDefault();
 
