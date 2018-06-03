@@ -21,6 +21,12 @@ module.exports = function(app) {
         res.json(userStocks);
       });
   });
+
+  app.get("api/stock", function(req,res){
+      res.json(stockData);
+      console.log(res);
+  })
+
 };
 
 
