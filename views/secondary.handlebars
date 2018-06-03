@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
  <a class="navbar-brand" href="/">Back</a>
  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,17 +69,33 @@
 <hr color="seashell">
 <br>
 <br>
+<div class="container">
+<div class="card mx-auto" id="stockInfo">
 
-<div id="stockInfo">
+    <table id="stockTable" style="width:100%">
+  <tr>
+    <th>Stock Name</th>
+    <th>Quantity</th> 
+    <th>Worth</th>
+  </tr>
+  <tbody>
+  </tbody>
+  {{!-- <tr id="stockInfo">
+    <td id="stockName"></td>
+    <td id="quantity"></td> 
+    <td id="worth"></td>
+  </tr> --}}
 
-    <div id="stockTicker">
-        
-    </div>
-    <div id="quantity">
+  
+</table>
 
-    </div> 
 </div>
+</div> 
 <!-- Creating the user graph -->
 <div id="chart-container">
     <canvas id="myCanvas" style="width:400px; height:auto;"></canvas>
 </div>
+
+
+
+
