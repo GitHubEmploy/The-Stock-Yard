@@ -1,18 +1,27 @@
 $(document).ready(function() {
     var closePrice = [];
     var closeDate = [];
+    var company = [];
     // Creating the br graph from "myCanvas" in secondary.handlebars
     var barGraph = $('#myCanvas');
-    var graphData= {
-        
+   
+
+    function createNewGraph() {
+
+        // you want for each company, it will have its own dataset
+        // make a new graph based on the dataset
+        // have an attribute for category
+        // then you create a data set for each category.
+        // if a dataset for that category already exists, then add to it
+
+        var graphData= {
+            labels: closeDate,
         datasets: [{
             label: "Close Price",
             backgroundColor: 'lightblue',
             data: closePrice
         }]
     };
-
-    function createNewGraph() {
         var newGraph = new Chart(barGraph, {
             type: 'bar',
             data: graphData,
@@ -85,14 +94,11 @@ $(document).ready(function() {
         console.log(response[i].close);
         closeDate.push(response[i].date);
         closePrice.push(response[i].close);
-        createNewGraph();
+        
       }
 
+      createNewGraph();
 
-      for (var i = 0; i < response.length; i++) {
-        //   console.log(response[i].date);
-        closeDate.push(response[i].date);
-      }
 
     });
     // URL
