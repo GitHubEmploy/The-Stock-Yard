@@ -88,6 +88,7 @@ $(document).ready(function() {
                 }
             }
         });
+
     }
     createNewGraph();
     });
@@ -111,6 +112,11 @@ $(document).ready(function() {
             console.log("this function ran");
         }
         newCard();
+    
+    function newBar () {
+        $("#graphSection").append("<canvas>" + newGraph + "</canvas>");
+    }
+        newBar();
   });
   
 });
