@@ -39,7 +39,7 @@ $(document).ready(function() {
         var graphData= {
             labels: closeDate,
         datasets: [{
-            label: stockName,
+            label: newHoldings.stock_name,
             backgroundColor: color,
             data: closePrice
         }]
