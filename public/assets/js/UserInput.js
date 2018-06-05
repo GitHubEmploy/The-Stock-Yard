@@ -2,23 +2,44 @@ $(document).ready(function() {
     var closePrice = [];
     var closeDate = [];
     var company = [];
-    // Creating the br graph from "myCanvas" in secondary.handlebars
     var barGraph = $('#myCanvas');
-   
+    var color = 'lightblue';
 
-    function createNewGraph() {
+ $("#submit").on("click", function(event) {
 
-        // you want for each company, it will have its own dataset
-        // make a new graph based on the dataset
-        // have an attribute for category
-        // then you create a data set for each category.
-        // if a dataset for that category already exists, then add to it
+    event.preventDefault();
+    //Grabbing user input
 
+    var newHoldings = {
+      stock_name: $("#tickerSymbol").val() || "",
+      qty: $("#qty").val() || ""
+    };
+
+    console.log(closeDate);
+    console.log(closePrice);
+    console.log(newHoldings);
+    // console.log(newHoldings.stock_name);
+    var stock = newHoldings.stock_name;
+
+    var queryURL = "https://api.iextrading.com/1.0/stock/" + stock + "/chart/1m";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+
+      console.log(response);
+      for (var i = 0; i < response.length; i++) {
+        closeDate.push(response[i].date);
+        closePrice.push(response[i].close);
+      }
+
+      function createNewGraph() {
         var graphData= {
             labels: closeDate,
         datasets: [{
-            label: "Close Price",
-            backgroundColor: 'lightblue',
+            label: stockName,
+            backgroundColor: color,
             data: closePrice
         }]
     };
@@ -27,6 +48,12 @@ $(document).ready(function() {
             data: graphData,
             options:{
                 responsive: false,
+                legend: {
+                    labels: {
+                        fontColor: 'white',
+                        fontSize: 20
+                    }
+                },
                 scales: {
                     xAxes:[{
                         scaleLabel: {
@@ -62,44 +89,7 @@ $(document).ready(function() {
             }
         });
     }
-
- $("#submit").on("click", function(event) {
-
-    event.preventDefault();
-    //Grabbing user input
-    var newHoldings = {
-      stock_name: $("#tickerSymbol").val() || "",
-      qty: $("#qty").val() || ""
-    };
-
-    console.log(closeDate);
-    console.log(closePrice);
-
-    console.log(newHoldings);
-    // console.log(newHoldings.stock_name);
-    var stock = newHoldings.stock_name;
-
-    var queryURL =
-      "https://api.iextrading.com/1.0/stock/" + stock + "/chart/1m";
-
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
-
-
-      console.log(response);
-      for (var i = 0; i < response.length; i++) {
-        console.log(response[i].date); 
-        console.log(response[i].close);
-        closeDate.push(response[i].date);
-        closePrice.push(response[i].close);
-        
-      }
-
-      createNewGraph();
-
-
+    createNewGraph();
     });
     // URL
     $.post("/second", newHoldings, function(res) {
@@ -112,18 +102,14 @@ $(document).ready(function() {
     $("#tickerSymbol").val("");
     $("#qty").val("");
 
-
     var stockName = newHoldings.stock_name.toUpperCase();
     var worth = newHoldings.qty * closePrice;
     console.log(worth);
+   
     function newCard () {
         $("#stockTable > tbody").append("<tr><td>" + stockName + "</td><td>" + newHoldings.qty + "</td><td>" + worth + "</td><tr>")
-  
-        console.log("this function ran");
-
+            console.log("this function ran");
         }
-
-   
         newCard();
   });
   
