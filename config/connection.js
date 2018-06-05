@@ -1,5 +1,8 @@
 var Sequelize = require("sequelize");
-var sequelize = new Sequelize("stockDB", "root", "mytestdibbs1993", {
+if (process.env.JAWSDB_URL){
+    var sequelize = new Sequelize(process.env.JAWSDB_URL);
+} else{
+var sequelize = new Sequelize("stockDB", "root", "", {
     host: "localhost",
     port: 3306,
     dialect: "mysql",
@@ -10,5 +13,5 @@ var sequelize = new Sequelize("stockDB", "root", "mytestdibbs1993", {
     }
 
 });
-
+}
 module.exports = sequelize;
