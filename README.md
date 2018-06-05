@@ -10,7 +10,7 @@ What is this?? The idea behind this is to create a stock "wallet" so to speak. I
 
 Project Outline: LandingPage - Login Page (user enters user name and password). This info is captured using an onclick function and inserted into an sql table (POST method) - Holdings page (user inputs their stock ticker symbol and quantity). This info is also captured by an onclick function and feeds the info into another table in sql (POST method). Once the add button is clicked, all holdings (stock and qty) is shown towards the bottom of the page (GET method). We capture the closing price from a stock api which calculates the stock "value". Data is displayed both visually in a graph and in a table. 
 
-APIs and stuff: API - IEX API (stocks), Bootstrap, java script, ajax, HTML, API routing, models to setup sql tables, handlebars, CSS, charts.js, MySQL for datastorage, Unsplash for the pics,  jQuery for DOM manipulation, heroku for publishing and JAWSDB for virtual database.
+APIs and stuff: API - IEX API (stocks), Bootstrap, java script, ajax, HTML, API routing, models to setup sql tables, handlebars, CSS, charts.js, MySQL for datastorage, Unsplash for the pics,  jQuery for DOM manipulation, heroku for publishing, GitKraken for version control and JAWSDB for virtual database.
 
 Who is doing what? 
 
