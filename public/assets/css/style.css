@@ -36,9 +36,13 @@ nav {
     float: left;
     text-align: center;
     width: 40%;
-    /* display: flex;
-    flex-direction: row; */
    
+}
+
+#graphSection {
+    align-content: center;
+    height: 1000px;
+    width: 1300px;
 }
 
 
