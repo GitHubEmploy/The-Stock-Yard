@@ -92,7 +92,7 @@ $(document).ready(function() {
 
     }
     createNewGraph();
-    });
+    
     // URL
     $.post("/second", newHoldings, function(res) {
       // console.log(res);
@@ -109,9 +109,10 @@ $(document).ready(function() {
       var worthPrice = response[value].close;
       var stockName = newHoldings.stock_name.toUpperCase();
       var math = parseInt(newHoldings.qty) * parseInt(worthPrice);
-      var worth = numeral(math).format("$0,0.00");
+      
     var stockName = newHoldings.stock_name.toUpperCase();
     var worth = newHoldings.qty * closePrice;
+    var worth = numeral(math).format("$0,0.00");
     console.log(worth);
    
     function newCard () {
@@ -119,6 +120,6 @@ $(document).ready(function() {
             console.log("this function ran");
         }
         newCard();
-
+    });
   });
 });
