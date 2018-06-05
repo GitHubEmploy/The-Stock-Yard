@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     var closePrice = [];
     var closeDate = [];
     var company = [];
@@ -102,7 +103,13 @@ $(document).ready(function() {
     //clears fields
     $("#tickerSymbol").val("");
     $("#qty").val("");
-
+      var value = closePrice.length - 1;
+      console.log(value);
+      console.log(response[value].close);
+      var worthPrice = response[value].close;
+      var stockName = newHoldings.stock_name.toUpperCase();
+      var math = parseInt(newHoldings.qty) * parseInt(worthPrice);
+      var worth = numeral(math).format("$0,0.00");
     var stockName = newHoldings.stock_name.toUpperCase();
     var worth = newHoldings.qty * closePrice;
     console.log(worth);
@@ -112,11 +119,6 @@ $(document).ready(function() {
             console.log("this function ran");
         }
         newCard();
-    
-    function newBar () {
-        $("#graphSection").append("<canvas>" + newGraph + "</canvas>");
-    }
-        newBar();
+
   });
-  
 });
