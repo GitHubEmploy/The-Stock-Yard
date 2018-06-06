@@ -1,7 +1,7 @@
 CREATE DATABASE stockDB;
 USE stockDB;
 
-CREATE TABLE user (
+CREATE TABLE userName (
     user_name TEXT,
     password TEXT
 );    
